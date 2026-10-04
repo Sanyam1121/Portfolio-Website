@@ -10,14 +10,17 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
-      setLoaded(true);
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
-    }, 600);
-  }
+  useEffect(() => {
+    if (percent < 100) return;
+
+    const completeTimer = window.setTimeout(() => setLoaded(true), 600);
+    const welcomeTimer = window.setTimeout(() => setIsLoaded(true), 1600);
+
+    return () => {
+      window.clearTimeout(completeTimer);
+      window.clearTimeout(welcomeTimer);
+    };
+  }, [percent]);
 
   useEffect(() => {
     import("./utils/initialFX").then((module) => {
@@ -45,7 +48,11 @@ const Loading = ({ percent }: { percent: number }) => {
   return (
     <>
       <div className="loading-header">
-        <a href="/#" className="loader-title" data-cursor="disable">
+        <a
+          href={`${import.meta.env.BASE_URL}#`}
+          className="loader-title"
+          data-cursor="disable"
+        >
           SANYAM GANDHI
         </a>
         <div className={`loaderGame ${clicked && "loader-out"}`}>
