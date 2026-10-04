@@ -53,34 +53,45 @@ const Scene = () => {
       let progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
-      loadCharacter().then((gltf) => {
-        if (gltf) {
-          const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
-          mixer = animations.mixer;
-          let character = gltf.scene;
-          const box = new THREE.Box3().setFromObject(character);
-          const size = new THREE.Vector3();
-          box.getSize(size);
-          if (size.y > 0 && size.y < 5) {
-            const scaleFactor = 13.5 / size.y;
-            character.scale.setScalar(scaleFactor);
+      loadCharacter()
+        .then((gltf) => {
+          if (gltf) {
+            const animations = setAnimations(gltf);
+            hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+            mixer = animations.mixer;
+            let character = gltf.scene;
+            const box = new THREE.Box3().setFromObject(character);
+            const size = new THREE.Vector3();
+            box.getSize(size);
+            if (size.y > 0 && size.y < 5) {
+              const scaleFactor = 13.5 / size.y;
+              character.scale.setScalar(scaleFactor);
+            }
+            setChar(character);
+            scene.add(character);
+            headBone =
+              character.getObjectByName("spine006") ||
+              character.getObjectByName("Head") ||
+              null;
+            screenLight = character.getObjectByName("screenlight") || null;
+            progress.loaded().then(() => {
+              setTimeout(() => {
+                light.turnOnLights();
+                animations.startIntro();
+              }, 2500);
+            });
+            window.addEventListener("resize", () =>
+              handleResize(renderer, camera, canvasDiv, character)
+            );
           }
-          setChar(character);
-          scene.add(character);
-          headBone = character.getObjectByName("spine006") || character.getObjectByName("Head") || null;
-          screenLight = character.getObjectByName("screenlight") || null;
-          progress.loaded().then(() => {
-            setTimeout(() => {
-              light.turnOnLights();
-              animations.startIntro();
-            }, 2500);
-          });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
+        })
+        .catch((error) => {
+          console.error(
+            "Character failed to load; continuing without 3D model:",
+            error
           );
-        }
-      });
+          progress.clear();
+        });
 
       let mouse = { x: 0, y: 0 },
         interpolation = { x: 0.1, y: 0.2 };
