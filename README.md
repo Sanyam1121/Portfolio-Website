@@ -1,65 +1,19 @@
-# My Portfolio Website - Overview 🚀
+# Sanyam Gandhi portfolio
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+Video editor and thumbnail designer based in Jalandhar.
 
----
+Live site: https://sanyam1121.github.io/Portfolio-Website/
 
-## ⚠️ Usage Notice
+## What's here
 
-This project is shared for learning purposes only.
+- `index.html` — the whole site: layout, styles and the timeline script in one file
+- `assets/` — work images (WebP)
+- `.github/workflows/deploy-gh-pages.yml` — publishes the site to GitHub Pages on every push to `main`
 
-Please do NOT:
-- Clone or replicate the full website or design
-- Repost it with minor content changes
-- Use this project for commercial/client work
-- Create tutorials or content using this exact project
+No build step and no dependencies. Open `index.html` in a browser to preview.
 
-If you use parts of the code, you must provide proper credit linking back to the original repository.
+## Adding a project
 
-Build your own version — don’t just copy.
-
-— Moncy Yohannan
-
----
-
-## 🛠️ Instructions
-
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
-
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
-
----
-
-## ⚙️ Tech Stack
-
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
-
----
-
-## 🎨 Assets Usage
-
-Some 3D assets included in this repository are free to use for learning purposes.
-
-However:
-
-- The original 3D avatar used on my live portfolio is NOT included in this repository
-- That avatar is a custom asset created over ~1 month
-- It is not open source and not available for reuse
-
-Any usage, extraction, or redistribution of that avatar from my live website is strictly prohibited.
-
----
-
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
-
----
-
-## 📄 License
-
-This project is licensed under the Personal Portfolio License (PPL) v1.0.
-
-See the LICENSE file for full details
-
+1. Put the image in `assets/` as a `.webp` (keep it under about 200 KB).
+2. Copy one of the `<article>` or `<figure>` blocks in the Work section of `index.html` and change the text, image and link.
+3. To show it on the hero timeline, add an entry to the `clips` list in the script at the bottom of `index.html`. Track `0` is thumbnails, `1` is Shorts and Reels, `2` is long-form. `s` and `e` are the start and end seconds (0–60).
