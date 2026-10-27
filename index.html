@@ -192,6 +192,79 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 .v-cap h3{font-size:18px}
 .v-cap a{font-size:15px;font-weight:600}
 @media (max-width:640px){.v-stage .v-btn{position:absolute;bottom:-56px;z-index:2}.v-stage .prev{left:4px}.v-stage .next{right:4px}.v-cap{padding:12px 56px 0}}
+
+/* search */
+.search{margin-left:auto;flex:0 1 240px;min-width:0;display:flex;align-items:center;gap:8px;padding:0 14px;height:40px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line);color:var(--muted)}
+.search:focus-within{box-shadow:inset 0 0 0 1.5px var(--text)}
+.search svg{width:16px;height:16px;flex:none}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--text);font:inherit;font-size:15px;outline:none}
+.search input::placeholder{color:var(--muted)}
+@media (max-width:760px){.search{flex:1 1 100%;margin-left:0;order:-1}}
+.empty{padding:40px 0;color:var(--muted)}
+.empty button{background:none;border:0;color:var(--text);text-decoration:underline;cursor:pointer;padding:0;font-size:inherit}
+
+/* viewer actions */
+.v-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.v-act{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 14px;border-radius:999px;border:0;background:var(--panel);cursor:pointer;font-size:14px;font-weight:600;text-decoration:none;color:var(--text)}
+.v-act:hover{background:var(--panel-2)}
+.v-act[aria-pressed="true"]{background:var(--text);color:var(--bg)}
+.v-act svg{width:16px;height:16px}
+
+/* feed preview */
+.feed{width:100%;max-width:980px;max-height:100%;overflow:auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:28px;align-items:start;padding:4px}
+.feed h4{margin:0 0 12px;font-size:13px;font-weight:500;color:var(--muted)}
+.fcard img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px}
+.fmeta{display:flex;gap:10px;margin-top:10px}
+.fav{width:34px;height:34px;border-radius:50%;background:var(--panel-2);flex:none}
+.ftitle{font-size:15px;font-weight:600;line-height:1.3}
+.fsub{font-size:13px;color:var(--muted);margin-top:3px}
+.fside{display:grid;gap:10px}
+.frow{display:grid;grid-template-columns:168px 1fr;gap:10px;align-items:start}
+.frow img{width:168px;aspect-ratio:16/9;object-fit:cover;border-radius:8px}
+.frow .bar{height:10px;border-radius:4px;background:var(--panel-2);margin-bottom:7px}
+.frow.me .ftitle{font-size:14px}
+.phone{margin-top:24px;width:min(100%,280px);border:1.5px solid var(--line);border-radius:22px;padding:12px}
+.phone img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px}
+.feed .note{grid-column:1/-1;margin:0;color:var(--muted);font-size:14px}
+@media (max-width:760px){.feed{grid-template-columns:1fr}.frow{grid-template-columns:120px 1fr}.frow img{width:120px}}
+
+/* brief */
+.brief{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,72px);align-items:start}
+.brief-side p{color:var(--muted);margin:0 0 16px;max-width:40ch}
+form.bf{display:grid;gap:22px;background:var(--panel);border-radius:12px;padding:clamp(18px,3vw,32px)}
+.bf fieldset{border:0;margin:0;padding:0;min-width:0}
+.bf legend,.bf label.l{display:block;font-size:15px;font-weight:600;margin-bottom:10px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative;cursor:pointer}
+.opts input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opts span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line);font-size:15px}
+.opts input:checked + span{background:var(--text);color:var(--bg);box-shadow:none}
+.opts input:focus-visible + span{outline:2px solid var(--text);outline-offset:3px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.bf input[type=text],.bf select,.bf textarea{width:100%;background:var(--bg);color:var(--text);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px;font:inherit;font-size:16px}
+.bf input[type=text]:focus,.bf select:focus,.bf textarea:focus{outline:none;border-color:var(--text)}
+.bf textarea{min-height:110px;resize:vertical}
+.refs{display:flex;flex-wrap:wrap;gap:10px}
+.ref{position:relative;width:96px}
+.ref img{width:96px;height:96px;object-fit:cover;border-radius:8px;background:var(--bg)}
+.ref .fallback{width:96px;height:96px;border-radius:8px;background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.ref span{display:block;font-size:12px;color:var(--muted);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ref button{position:absolute;top:4px;right:4px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(14,15,18,.85);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.ref button svg{width:14px;height:14px}
+.refs-empty{font-size:14px;color:var(--muted);margin:0}
+.bf .err{color:#FF9B8A;font-size:14px;margin:0}
+.send{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media (max-width:860px){.brief{grid-template-columns:1fr}}
+
+/* toast + floating WhatsApp */
+.toast{position:fixed;left:50%;bottom:max(20px,calc(env(safe-area-inset-bottom,0px) + 20px));transform:translateX(-50%);z-index:60;background:var(--text);color:var(--bg);padding:11px 16px;border-radius:999px;font-size:15px;font-weight:600;display:flex;gap:14px;align-items:center;box-shadow:0 8px 30px rgba(0,0,0,.4);max-width:calc(100% - 32px)}
+.toast a{color:var(--bg)}
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,calc(env(safe-area-inset-bottom,0px) + 16px));z-index:20;display:none;align-items:center;gap:8px;padding:13px 18px 13px 15px;border-radius:999px;background:var(--ad);color:#12261F;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 6px 24px rgba(0,0,0,.45);transition:transform .25s,opacity .25s}
+.fab svg{width:20px;height:20px}
+.fab.away{transform:translateY(120%);opacity:0;pointer-events:none}
+@media (max-width:760px){.fab{display:inline-flex}}
+@media (max-width:640px){.v-cap{flex-direction:column;align-items:stretch;gap:10px}.v-cap h3{font-size:16px}.v-actions{justify-content:center}.v-act .lbl{display:none}.v-act{width:44px;height:44px;padding:0;justify-content:center}.v-act svg{width:18px;height:18px}#v-link{width:auto;padding:0 14px}}
 </style>
 </head>
 <body>
@@ -202,6 +275,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   <nav aria-label="Main">
     <a class="hide-m" href="#work">Work</a>
     <a class="hide-m" href="#about">About</a>
+    <a class="hide-m" href="#brief">Start a project</a>
     <a class="hide-m" href="assets/Sanyam-Gandhi-Resume.pdf" target="_blank" rel="noopener">Resume</a>
     <a class="btn" href="https://wa.me/917986119104?text=Hi%20Sanyam%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener">WhatsApp me</a>
   </nav>
@@ -216,7 +290,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
       <p class="tally" id="tally">&nbsp;</p>
       <div class="cta">
         <a class="btn" href="#work">See my work</a>
-        <a class="btn ghost" href="mailto:gandhisanyam50@gmail.com">Email me</a>
+        <a class="btn ghost" href="#brief">Start a project</a>
       </div>
     </div>
     <figure class="monitor" aria-label="Preview of the selected project">
@@ -249,12 +323,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
 <section id="work">
   <div class="wrap">
     <h2>Work</h2>
-    <p class="intro">Everything I've made recently, in one place. Tap any piece to see it full size or play it.</p>
+    <p class="intro">Everything I've made recently, in one place. Tap any piece to see it full size or play it. Like something? Add it to your brief as a reference.</p>
     <div class="bin-bar" role="group" aria-label="Filter work">
       <button class="chip" type="button" data-f="all" aria-pressed="true">All <span class="n"></span></button>
       <button class="chip" type="button" data-f="video" aria-pressed="false"><i class="dot video"></i>Videos <span class="n"></span></button>
       <button class="chip" type="button" data-f="thumb" aria-pressed="false"><i class="dot thumb"></i>Thumbnails <span class="n"></span></button>
       <button class="chip" type="button" data-f="ad" aria-pressed="false"><i class="dot ad"></i>Ads and posts <span class="n"></span></button>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search: Slipnix, trading, reel…" aria-label="Search work" autocomplete="off"></label>
     </div>
     <div class="grid" id="grid"></div>
     <div class="more"><button class="btn ghost" id="more" type="button" hidden>Show all</button></div>
@@ -326,6 +401,48 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   </div>
 </section>
 
+<section id="brief">
+  <div class="wrap brief">
+    <div class="brief-side">
+      <h2>Start a project</h2>
+      <p>Pick what you need and add a few details. Your brief opens in WhatsApp or your email app, ready to send to me.</p>
+      <p>Saw something you like in my work? Open it and tap <b>I want something like this</b>. It shows up here as a reference.</p>
+    </div>
+    <form class="bf" id="bf" novalidate>
+      <fieldset>
+        <legend>What do you need?</legend>
+        <div class="opts" id="need">
+          <label><input type="checkbox" name="need" value="YouTube video edit"><span>YouTube video</span></label>
+          <label><input type="checkbox" name="need" value="Shorts / Reels"><span>Shorts or Reels</span></label>
+          <label><input type="checkbox" name="need" value="Ad film"><span>Ad film</span></label>
+          <label><input type="checkbox" name="need" value="Thumbnails"><span>Thumbnails</span></label>
+          <label><input type="checkbox" name="need" value="Social ads / posts"><span>Social ads</span></label>
+          <label><input type="checkbox" name="need" value="Amazon listing images"><span>Amazon listing</span></label>
+        </div>
+      </fieldset>
+      <div class="row2">
+        <div><label class="l" for="b-qty">How many?</label><input type="text" id="b-qty" placeholder="e.g. 4 videos a month"></div>
+        <div><label class="l" for="b-when">When do you need it?</label>
+          <select id="b-when"><option value="">Choose one</option><option>As soon as possible</option><option>Within a week</option><option>Within 2 weeks</option><option>This month</option><option>Ongoing, every month</option><option>Flexible</option></select></div>
+      </div>
+      <div class="row2">
+        <div><label class="l" for="b-name">Your name</label><input type="text" id="b-name" autocomplete="name"></div>
+        <div><label class="l" for="b-link">Your channel or brand (optional)</label><input type="text" id="b-link" placeholder="Link or name"></div>
+      </div>
+      <div><label class="l" for="b-details">Tell me about it</label><textarea id="b-details" placeholder="What it's about, the style you like, how long, anything else"></textarea></div>
+      <fieldset>
+        <legend>References from my work</legend>
+        <div class="refs" id="refs"></div>
+      </fieldset>
+      <p class="err" id="b-err" hidden>Pick at least one thing you need, or write a few words about it.</p>
+      <div class="send">
+        <button class="btn" type="submit" data-via="wa">Send on WhatsApp</button>
+        <button class="btn ghost" type="submit" data-via="mail">Send by email</button>
+      </div>
+    </form>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="wrap">
     <h2>Have something to make?</h2>
@@ -358,14 +475,33 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     <div class="v-media" id="v-media"></div>
     <button class="v-btn next" type="button" id="v-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
-  <div class="v-cap"><div><h3 id="v-title"></h3><p class="meta" id="v-sub"></p></div><a id="v-link" target="_blank" rel="noopener" hidden></a></div>
+  <div class="v-cap"><div><h3 id="v-title"></h3><p class="meta" id="v-sub"></p></div>
+    <div class="v-actions">
+      <button class="v-act" type="button" id="v-feed" aria-pressed="false" aria-label="See it in a feed" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg><span class="lbl">See it in a feed</span></button>
+      <button class="v-act" type="button" id="v-ref" aria-label="I want something like this"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="lbl">I want something like this</span></button>
+      <button class="v-act" type="button" id="v-share" aria-label="Copy link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><span class="lbl">Copy link</span></button>
+      <a class="v-act" id="v-link" target="_blank" rel="noopener" hidden></a>
+    </div></div>
 </div>
+
+<a class="fab away" id="fab" href="https://wa.me/917986119104?text=Hi%20Sanyam%2C%20I%20saw%20your%20portfolio" target="_blank" rel="noopener" aria-label="WhatsApp Sanyam"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6-.3.4c-.1.1-.2.3-.1.5.2.3.7 1.2 1.6 1.9 1.1.9 2 1.2 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3z"/></svg>WhatsApp</a>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
 <script src="work.js"></script>
 <script>
 (function(){
   var W = window.WORK || [];
-  W.forEach(function(w,i){ w.i=i; });
+  var seen={};
+  W.forEach(function(w,i){
+    w.i=i;
+    var sl=(w.title||"work").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48)||"work";
+    if(seen[sl]){ seen[sl]++; sl+="-"+seen[sl]; } else seen[sl]=1;
+    w.slug=sl;
+  });
+  var X='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var toastEl=document.getElementById("toast"), toastT=null;
+  function toast(html){ toastEl.innerHTML=html; toastEl.hidden=false; clearTimeout(toastT); toastT=setTimeout(function(){toastEl.hidden=true},2600); }
+  function store(k,v){ try{ if(v===undefined) return JSON.parse(localStorage.getItem(k)||"null"); localStorage.setItem(k,JSON.stringify(v)); }catch(e){ return null; } }
   var KIND = {video:"Video", thumb:"Thumbnail", ad:"Ad"};
   var PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
   function poster(w, big){
@@ -392,8 +528,36 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   }
   function closeViewer(){
     viewer.hidden=true; vMedia.innerHTML=""; document.body.style.overflow="";
-    if(lastFocus) lastFocus.focus();
+    try{ if(location.hash.indexOf("#p-")===0) history.replaceState(null,"",location.pathname+location.search); }catch(e){}
+    if(lastFocus && document.body.contains(lastFocus)) lastFocus.focus();
   }
+  var vFeed=document.getElementById("v-feed"), vRef=document.getElementById("v-ref"), vShare=document.getElementById("v-share"), feedOn=false;
+  function feedView(w){
+    var img=poster(w,true), t=esc(w.title);
+    function row(src,title,me){ return '<div class="frow'+(me?' me':'')+'"><img src="'+src+'" alt="">'+(me?'<div><div class="ftitle">'+title+'</div><div class="fsub">Your channel</div></div>':'<div><div class="bar" style="width:90%"></div><div class="bar" style="width:60%"></div></div>')+'</div>'; }
+    var others=W.filter(function(x){return x.kind==="thumb"&&x!==w}).slice(0,2).map(function(x){return poster(x,false)});
+    var d=document.createElement("div"); d.className="feed";
+    d.innerHTML='<div><h4>Home feed, desktop</h4><div class="fcard"><img src="'+img+'" alt="'+esc(w.alt||w.title)+'"><div class="fmeta"><div class="fav"></div><div><div class="ftitle">'+t+'</div><div class="fsub">Your channel</div></div></div></div>'+
+      '<h4 style="margin-top:24px">Phone</h4><div class="phone"><img src="'+img+'" alt=""><div class="fmeta"><div class="fav" style="width:28px;height:28px"></div><div><div class="ftitle" style="font-size:13px">'+t+'</div><div class="fsub">Your channel</div></div></div></div></div>'+
+      '<div><h4>Up next, sidebar</h4><div class="fside">'+row(others[0]||img,"",false)+row(img,t,true)+row(others[1]||img,"",false)+'</div></div>'+
+      '<p class="note">A thumbnail has to work at these small sizes, not just full screen.</p>';
+    return d;
+  }
+  function refs(){ return store("brief-refs")||[]; }
+  function setRefs(a){ store("brief-refs",a); drawRefs(); }
+  function refBtn(w){ var has=refs().indexOf(w.slug)>-1; vRef.setAttribute("aria-pressed",has?"true":"false"); vRef.setAttribute("aria-label",has?"Remove from your brief":"I want something like this"); vRef.querySelector(".lbl").textContent= has?"Added to your brief":"I want something like this"; }
+  vRef.onclick=function(){
+    var w=list[pos], a=refs(), i=a.indexOf(w.slug);
+    if(i>-1){ a.splice(i,1); setRefs(a); refBtn(w); toast("Removed from your brief"); }
+    else{ a.push(w.slug); setRefs(a); refBtn(w); toast('Added to your brief <a href="#brief" id="toast-go">View brief</a>'); var g=document.getElementById("toast-go"); if(g) g.onclick=function(){ closeViewer(); }; }
+  };
+  vShare.onclick=function(){
+    var w=list[pos], url=location.origin+location.pathname+"#p-"+w.slug;
+    if(navigator.share && matchMedia("(pointer:coarse)").matches){ navigator.share({title:w.title+", by Sanyam Gandhi",url:url}).catch(function(){}); return; }
+    if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){ toast("Link copied"); },function(){ toast(url); });
+    else toast(url);
+  };
+  vFeed.onclick=function(){ feedOn=!feedOn; render(); };
   function frameFor(w){
     var f=document.createElement("div"); f.className="v-frame";
     var ar=(w.w&&w.h)? w.w/w.h : (w._ar||16/9);
@@ -405,10 +569,16 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     f._size=size; return f;
   }
   function render(){
-    var w=list[pos]; vMedia.innerHTML=""; vLink.hidden=true;
+    var w=list[pos]; vMedia.innerHTML=""; vLink.hidden=true; vMedia._frame=null;
+    if(w.kind!=="thumb") feedOn=false;
+    vFeed.hidden = w.kind!=="thumb"; vFeed.setAttribute("aria-pressed",feedOn?"true":"false");
+    refBtn(w);
+    try{ history.replaceState(null,"","#p-"+w.slug); }catch(e){}
     vTitle.textContent=w.title; vSub.textContent=w.sub||"";
     vCount.textContent=(pos+1)+" / "+list.length;
-    if(w.kind!=="video"){
+    if(w.kind==="thumb" && feedOn){
+      vMedia.appendChild(feedView(w));
+    } else if(w.kind!=="video"){
       var im=new Image(); im.src=poster(w,true); im.alt=w.alt||w.title; vMedia.appendChild(im);
     } else if(w.yt || w.drive){
       var f=frameFor(w), ifr=document.createElement("iframe");
@@ -417,7 +587,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
       f.appendChild(ifr); vMedia.appendChild(f); f._size(); vMedia._frame=f;
       vLink.hidden=false;
       vLink.href = w.yt ? "https://youtu.be/"+w.yt : "https://drive.google.com/file/d/"+w.drive+"/view";
-      vLink.textContent = w.yt ? "Watch on YouTube" : "Open in Google Drive";
+      vLink.textContent = w.yt ? "Watch on YouTube" : "Open in Drive";
     } else if(w.link){
       var box=document.createElement("div"); box.className="v-out";
       var im2=new Image(); im2.src=poster(w,true); im2.alt=w.title; box.appendChild(im2);
@@ -450,8 +620,15 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
   window.addEventListener("resize",function(){ if(!viewer.hidden && vMedia._frame && vMedia.contains(vMedia._frame)) vMedia._frame._size(); });
 
   /* ---------- work bin ---------- */
-  var grid=document.getElementById("grid"), moreBtn=document.getElementById("more"), filter="all", expanded=false, PAGE=24;
+  var grid=document.getElementById("grid"), moreBtn=document.getElementById("more"), filter="all", expanded=false, PAGE=24, query="";
+  var qEl=document.getElementById("q");
+  function matches(w){
+    if(!query) return true;
+    var hay=[w.title,w.sub,w.brand,w.alt,KIND[w.kind],w.kind==="video"?"video reel edit":"",w.kind==="ad"?"ad post design":""].join(" ").toLowerCase();
+    return query.split(/\s+/).every(function(t){ return hay.indexOf(t)>-1; });
+  }
   function ordered(){
+    if(query) return W.filter(function(w){ return (filter==="all"||w.kind===filter) && matches(w); });
     if(filter!=="all") return W.filter(function(w){return w.kind===filter});
     // mix the kinds so the first screen shows range
     var b={video:[],thumb:[],ad:[]}; W.forEach(function(w){ b[w.kind].push(w); });
@@ -477,6 +654,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     grid.innerHTML=""; var frag=document.createDocumentFragment();
     show.forEach(function(w,i){ frag.appendChild(tile(w, items, i)); });
     grid.appendChild(frag);
+    if(!items.length){ grid.innerHTML='<p class="empty">Nothing matches "'+esc(query)+'". <button type="button" id="clearq">Clear search</button></p>'; document.getElementById("clearq").onclick=function(){ qEl.value=""; query=""; draw(); qEl.focus(); }; }
     moreBtn.hidden = expanded || items.length<=PAGE;
     moreBtn.textContent="Show all "+items.length;
   }
@@ -487,6 +665,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     };
   });
   moreBtn.onclick=function(){ expanded=true; var y=window.scrollY; draw(); window.scrollTo(0,y); };
+  var qT=null;
+  qEl.addEventListener("input",function(){ clearTimeout(qT); qT=setTimeout(function(){ query=qEl.value.trim().toLowerCase(); expanded=!!query; draw(); },120); });
   draw();
 
   /* ---------- campaign ---------- */
@@ -509,6 +689,70 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;paddin
     var done=function(){ cp.textContent="Copied"; setTimeout(function(){cp.textContent="Copy email"},1600); };
     if(navigator.clipboard) navigator.clipboard.writeText("gandhisanyam50@gmail.com").then(done,function(){});
   };
+
+  /* ---------- brief ---------- */
+  var refsEl=document.getElementById("refs"), bySlug={}; W.forEach(function(w){ bySlug[w.slug]=w; });
+  function drawRefs(){
+    var a=refs().filter(function(s){return bySlug[s]});
+    refsEl.innerHTML="";
+    if(!a.length){ refsEl.innerHTML='<p class="refs-empty">None yet. Open any piece in the Work section and tap "I want something like this".</p>'; return; }
+    a.forEach(function(s){
+      var w=bySlug[s], d=document.createElement("div"); d.className="ref";
+      d.innerHTML='<img alt=""><div class="fallback" hidden>'+PLAY+'</div><span></span><button type="button" aria-label="Remove '+esc(w.title)+'">'+X+'</button>';
+      var im=d.querySelector("img"); im.onerror=function(){ im.hidden=true; d.querySelector(".fallback").hidden=false; }; im.src=poster(w,false);
+      d.querySelector("span").textContent=w.title;
+      d.querySelector("button").onclick=function(){ setRefs(refs().filter(function(x){return x!==s})); };
+      refsEl.appendChild(d);
+    });
+  }
+  drawRefs();
+  var bf=document.getElementById("bf"), via="wa";
+  bf.querySelectorAll("[type=submit]").forEach(function(b){ b.addEventListener("click",function(){ via=b.dataset.via; }); });
+  // remember a half-written brief on this device
+  var draft=store("brief-draft")||{};
+  ["b-qty","b-when","b-name","b-link","b-details"].forEach(function(id){ var el=document.getElementById(id); if(draft[id]) el.value=draft[id]; el.addEventListener("input",saveDraft); el.addEventListener("change",saveDraft); });
+  bf.querySelectorAll("[name=need]").forEach(function(c){ if((draft.need||[]).indexOf(c.value)>-1) c.checked=true; c.addEventListener("change",saveDraft); });
+  function needs(){ return [].map.call(bf.querySelectorAll("[name=need]:checked"),function(c){return c.value}); }
+  function saveDraft(){ var d={need:needs()}; ["b-qty","b-when","b-name","b-link","b-details"].forEach(function(id){ d[id]=document.getElementById(id).value; }); store("brief-draft",d); }
+  function v(id){ return document.getElementById(id).value.trim(); }
+  bf.addEventListener("input",function(){ document.getElementById("b-err").hidden=true; });
+  bf.addEventListener("submit",function(e){
+    e.preventDefault();
+    var n=needs(), err=document.getElementById("b-err");
+    if(!n.length && !v("b-details")){ err.hidden=false; return; }
+    err.hidden=true;
+    var base=location.origin+location.pathname, L=[];
+    L.push("Hi Sanyam, I'd like to work with you."+(v("b-name")?" I'm "+v("b-name")+".":""));
+    if(n.length) L.push("Need: "+n.join(", "));
+    if(v("b-qty")) L.push("How many: "+v("b-qty"));
+    if(v("b-when")) L.push("When: "+v("b-when"));
+    if(v("b-link")) L.push("Channel/brand: "+v("b-link"));
+    if(v("b-details")) L.push("", v("b-details"));
+    var r=refs().filter(function(s){return bySlug[s]});
+    if(r.length){ L.push("","References from your portfolio:"); r.forEach(function(s){ L.push("- "+bySlug[s].title+": "+base+"#p-"+s); }); }
+    var text=L.join("\n");
+    var url = via==="wa" ? "https://wa.me/917986119104?text="+encodeURIComponent(text)
+      : "mailto:gandhisanyam50@gmail.com?subject="+encodeURIComponent("Project enquiry"+(n.length?": "+n.join(", "):""))+"&body="+encodeURIComponent(text);
+    if(via==="wa") window.open(url,"_blank","noopener"); else location.href=url;
+  });
+
+  /* ---------- deep links ---------- */
+  function fromHash(){
+    var h=location.hash; if(h.indexOf("#p-")!==0) return;
+    var w=bySlug[h.slice(3)]; if(!w) return;
+    var items=W.filter(function(x){return x.kind===w.kind}); openViewer(items, items.indexOf(w));
+  }
+  window.addEventListener("hashchange",function(){ if(viewer.hidden) fromHash(); });
+  fromHash();
+
+  /* ---------- floating WhatsApp (phones) ---------- */
+  var fab=document.getElementById("fab"), heroEnd=document.querySelector(".timeline"), contactSec=document.getElementById("contact"), briefSec=document.getElementById("brief");
+  function fabCheck(){
+    var past = heroEnd.getBoundingClientRect().bottom < 0;
+    var atEnd = briefSec.getBoundingClientRect().top < innerHeight*0.6;
+    fab.classList.toggle("away", !past || atEnd);
+  }
+  addEventListener("scroll",fabCheck,{passive:true}); fabCheck();
 
   /* ---------- hero timeline ---------- */
   var LEN=60;
