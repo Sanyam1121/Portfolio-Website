@@ -25,3 +25,11 @@ Everything in the Work section comes from `work.js`. The order in that file is t
 - **Add an image:** save it in `assets/work/` as `.webp`, then add
   `{"kind": "thumb" or "ad", "title": "...", "sub": "...", "src": "assets/work/name.webp", "thumb": "assets/work/name.webp", "alt": "what the image shows", "w": 16, "h": 9}`
 - **Remove something:** delete its `{...}` block (and the comma before it).
+
+## Features
+
+- **Search and filters** in the Work section.
+- **Viewer:** tap any piece to see it full screen. Arrow keys or swipe move between pieces.
+- **Share links:** every piece has its own link (`…/Portfolio-Website/#p-crisis-soon`). Use "Copy link" in the viewer to send one piece to a client.
+- **Feed preview:** for thumbnails, "See it in a feed" shows the thumbnail at YouTube home-feed, sidebar and phone sizes.
+- **Start a project:** visitors build a brief (what they need, deadline, details, and references picked with "I want something like this"). It opens as a ready-to-send WhatsApp message or email to Sanyam. Nothing is stored on a server.
