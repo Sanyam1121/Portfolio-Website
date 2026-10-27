@@ -1,19 +1,27 @@
 # Sanyam Gandhi portfolio
 
-Video editor and thumbnail designer based in Jalandhar.
+Video editor and designer based in Jalandhar.
 
 Live site: https://sanyam1121.github.io/Portfolio-Website/
 
 ## What's here
 
-- `index.html` — the whole site: layout, styles and the timeline script in one file
-- `assets/` — work images (WebP)
-- `.github/workflows/deploy-gh-pages.yml` — publishes the site to GitHub Pages on every push to `main`
+- `index.html`: the page (layout, styles and scripts)
+- `work.js`: the list of every piece of work shown on the site
+- `assets/work/`: thumbnails and ad images (WebP; `-s` files are the small grid versions)
+- `assets/Sanyam-Gandhi-Resume.pdf`: the resume behind the Resume buttons
+- `.github/workflows/deploy-gh-pages.yml`: publishes the site on every push to `main`
 
-No build step and no dependencies. Open `index.html` in a browser to preview.
+No build step. Open `index.html` in a browser to preview.
 
-## Adding a project
+## Adding or changing work
 
-1. Put the image in `assets/` as a `.webp` (keep it under about 200 KB).
-2. Copy one of the `<article>` or `<figure>` blocks in the Work section of `index.html` and change the text, image and link.
-3. To show it on the hero timeline, add an entry to the `clips` list in the script at the bottom of `index.html`. Track `0` is thumbnails, `1` is Shorts and Reels, `2` is long-form. `s` and `e` are the start and end seconds (0–60).
+Everything in the Work section comes from `work.js`. The order in that file is the order on the page.
+
+- **Rename something:** change its `title` or `sub`.
+- **Add a Drive video:** upload it to the Portfolio › Videos folder in Google Drive (that folder is shared as "Anyone with the link"), copy the file ID from its link (`drive.google.com/file/d/THIS_PART/view`), and add:
+  `{"kind": "video", "title": "My new edit", "sub": "Reel", "drive": "THIS_PART"}`
+- **Add a YouTube video:** `{"kind": "video", "title": "...", "sub": "...", "yt": "VIDEO_ID", "poster": "https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg", "w": 16, "h": 9}`
+- **Add an image:** save it in `assets/work/` as `.webp`, then add
+  `{"kind": "thumb" or "ad", "title": "...", "sub": "...", "src": "assets/work/name.webp", "thumb": "assets/work/name.webp", "alt": "what the image shows", "w": 16, "h": 9}`
+- **Remove something:** delete its `{...}` block (and the comma before it).
